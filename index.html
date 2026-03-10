@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCKP INSTITUTION | Elite Academic Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container container">
+            <div class="logo">
+                <a href="/">
+                    <img src="logo.png" alt="SCKP Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-cta">
+                <a href="javascript:void(0)" onclick="openPopup()" class="nav-link-gold">ADMISSION OPEN</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="premium-tag">30+ Years of Academic Excellence</span>
+            <h1>Shape Your Future With <span class="gold-text">SCKP INSTITUTION</span></h1>
+            
+            <div class="odia-wrapper">
+                <p class="odia-tagline">ଶିକ୍ଷାର ନୂଆ ନାମ, ସଫଳତାର ପୁରୁଣା ଠିକଣା</p>
+            </div>
+            
+            <p class="hero-description">Baripada’s premier academic hub for Class 6–10 & +2 Science. Transforming potential into performance with conceptual mastery.</p>
+            
+            <div class="hero-btns">
+                <a class="btn btn-gold" href="javascript:void(0)" onclick="openPopup()">Enroll for 2026</a>
+                <a class="btn btn-outline" href="#courses">Explore Programs</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="courses">
+            <div class="bento-grid">
+                <div class="bento-item main-course">
+                    <span class="bento-tag">CHSE Curriculum</span>
+                    <h3>+2 Science Coaching</h3>
+                    <p>Rigorous coaching for Physics, Chemistry, Mathematics, and Biology designed for top-tier results in CHSE exams.</p>
+                </div>
+                <div class="bento-item">
+                    <span class="bento-tag">Foundation</span>
+                    <h3>Class 6–10</h3>
+                    <p>Odia Medium excellence across all core subjects to ensure board exam success.</p>
+                </div>
+                <div class="bento-item">
+                    <span class="bento-tag">Strategic</span>
+                    <h3>Scholarship Prep</h3>
+                    <p>Expert training for NMMS, PMST, NTSE, and NRTS examinations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-bar">
+            <div class="stat-item">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Conceptual Focus</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">Elite</span>
+                <span class="stat-label">Faculty Group</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Naharpada, Ward No. 11, Baripada, Mayurbhanj, Odisha</p>
+        <p class="copy-text">&copy; 2026 SCKP INSTITUTION</p>
+    </footer>
+
+    <div id="popupOverlay" class="premium-overlay">
+        <div class="premium-popup">
+            <button class="close-x" onclick="minimizePopup()">×</button>
+            <div class="popup-inner">
+                <div class="gold-line"></div>
+                <h2>Priority Admission</h2>
+                <p>Register the <strong>student's details</strong> below to secure a seat for 2026.</p>
+
+                <form id="admissionForm" class="premium-form">
+                    <div class="form-group">
+                        <input type="text" id="studentName" placeholder="Student's Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="studentPhone" placeholder="Contact Mobile Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="programSelect" required>
+                            <option value="" disabled selected>Select Academic Program</option>
+                            <option value="6-10">Class 6–10 (Odia Medium)</option>
+                            <option value="plus2">+2 Science (CHSE)</option>
+                            <option value="scholar">Scholarship Preparation</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-gold-full">Register Student</button>
+                </form>
+                <button class="minimize-link" onclick="minimizePopup()">Return to Website</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="minimizedBtn" class="floating-fab" onclick="openPopup()">
+        <span class="fab-star">✦</span>
+        <span>Admission 2026</span>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('popupOverlay');
+        const minBtn = document.getElementById('minimizedBtn');
+        const form = document.getElementById('admissionForm');
+
+        function minimizePopup() {
+            overlay.style.display = 'none';
+            minBtn.classList.add('show-fab');
+        }
+
+        function openPopup() {
+            overlay.style.display = 'flex';
+            minBtn.classList.remove('show-fab');
+        }
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const name = document.getElementById('studentName').value;
+            alert(`Registration Received for ${name}. Our office will contact you shortly.`);
+            minimizePopup();
+        };
+
+        window.onload = () => {
+            setTimeout(() => { overlay.style.display = 'flex'; }, 2000);
+        };
+    </script>
+</body>
+</html>
