@@ -1,0 +1,137 @@
+:root {
+    --deep-navy: #020c1b;
+    --navy-light: #0a192f;
+    --gold-grad: linear-gradient(135deg, #d4af37 0%, #f2d06b 100%);
+    --silver: #ccd6f6;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--deep-navy);
+    color: var(--silver);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 30px; width: 100%; }
+
+/* NAVIGATION */
+.navbar {
+    padding: 15px 0;
+    background: rgba(2, 12, 27, 0.95);
+    backdrop-filter: blur(15px);
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* LOGO STYLING */
+.logo-img {
+    height: 45px; /* Adjust based on your logo shape */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link-gold { 
+    color: #f2d06b; 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 0.85rem; 
+    letter-spacing: 1px; 
+    border: 1px solid #f2d06b;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 0;
+    background: linear-gradient(rgba(2, 12, 27, 0.85), rgba(2, 12, 27, 0.85)), 
+                url('https://images.unsplash.com/photo-1523050853063-bd80e27433fb?q=80&w=1500&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content { position: relative; z-index: 10; text-align: center; width: 100%; max-width: 900px; padding: 0 20px; }
+.premium-tag { color: #f2d06b; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; font-weight: 800; display: block; margin-bottom: 20px; }
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); color: white; margin-bottom: 10px; font-weight: 800; line-height: 1.1; }
+.gold-text { background: var(--gold-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* ODIA TYPOGRAPHY */
+.odia-wrapper { margin-bottom: 30px; }
+.odia-tagline {
+    font-size: clamp(1.3rem, 4vw, 2.2rem);
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    line-height: 1.4;
+    text-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+}
+
+.hero-description { font-size: clamp(1rem, 2vw, 1.2rem); margin-bottom: 40px; color: var(--silver); opacity: 0.8; max-width: 650px; margin-left: auto; margin-right: auto; }
+.hero-btns { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+/* BENTO GRID */
+.bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 100px 0; }
+.bento-item { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: 24px; transition: 0.3s; }
+.bento-item:hover { background: rgba(255,255,255,0.08); border-color: #f2d06b; }
+.main-course { grid-column: span 2; background: rgba(212, 175, 55, 0.05); border-color: rgba(212,175,55,0.2); }
+.bento-tag { color: #f2d06b; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; display: block; }
+
+/* STATS */
+.experience-bar { display: flex; justify-content: space-around; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+.stat-number { display: block; font-size: 2.5rem; font-weight: 800; color: white; }
+.stat-label { color: #8892b0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* POP-UP */
+.premium-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 12, 27, 0.98); z-index: 9999; display: none; align-items: center; justify-content: center; }
+.premium-popup { background: var(--navy-light); border: 1px solid rgba(255,255,255,0.1); padding: 60px 40px; border-radius: 30px; max-width: 500px; width: 95%; position: relative; text-align: center; }
+.gold-line { width: 50px; height: 4px; background: var(--gold-grad); margin: 0 auto 30px; }
+.premium-form { margin-top: 30px; display: flex; flex-direction: column; gap: 20px; }
+.form-group input, .form-group select { width: 100%; padding: 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: white; font-size: 1rem; }
+
+/* BUTTONS */
+.btn { padding: 18px 40px; border-radius: 15px; cursor: pointer; font-weight: 800; text-decoration: none; border: none; transition: 0.4s; display: inline-block; }
+.btn-gold { background: var(--gold-grad); color: var(--deep-navy); }
+.btn-gold-full { background: var(--gold-grad); color: var(--deep-navy); width: 100%; }
+.btn-outline { border: 2px solid white; color: white; background: none; }
+.btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3); }
+
+/* FLOATING FAB */
+.floating-fab { position: fixed; bottom: 40px; right: 40px; background: var(--gold-grad); color: var(--deep-navy); padding: 15px 30px; border-radius: 50px; font-weight: 800; cursor: pointer; display: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 9998; align-items: center; gap: 10px; }
+.show-fab { display: flex; }
+
+.footer { padding: 60px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.close-x { position: absolute; top: 20px; right: 25px; background: none; border: none; color: white; font-size: 35px; cursor: pointer; }
+.minimize-link { background: none; border: none; color: #8892b0; margin-top: 25px; cursor: pointer; text-decoration: underline; font-family: inherit; }
+
+@media (max-width: 900px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .main-course { grid-column: span 1; }
+    .experience-bar { flex-direction: column; gap: 40px; text-align: center; }
+    .hero-btns { flex-direction: column; }
+    .btn { width: 100%; text-align: center; }
+    .logo-img { height: 35px; } /* Slightly smaller logo on mobile */
+}
